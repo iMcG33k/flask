@@ -14,18 +14,21 @@
          pointing to a configuration file or pass in a
          dictionary with config values using the create_app
          function.
+	 # 可以在factory.py 中修改configuration字典， 不需要的话可以忽略这句
 
-      2. install the app from the root of the project directory
+      2. install the app from the root of the project directory (in the examples/flaskr/ dir)
 
-         pip install --editable .
+         pip3 install --editable .
 
-      3. Instruct flask to use the right application
+      3. Instruct flask to use the right application (in the examples/flaskr/flaskr/ dir)
 
-         export FLASK_APP=flaskr.factory:create_app()
+         # export FLASK_APP=flaskr.factory:create_app()
+	 export FLASK_APP=factory.py
 
       4. initialize the database with this command:
 
-         flask initdb
+         # flask initdb
+	 # 无法执行， 忽略。 改为手动建表
 
       5. now you can run flaskr:
 
@@ -33,6 +36,9 @@
 
          the application will greet you on
          http://localhost:5000/
+
+	 这里会找不到数据库中的表， 因为init_db()方法有问题 无法执行
+	 用数据库工具在 flaskr.db 中手动执行 schema.sql 语句 创建表
 
     ~ Is it tested?
 
